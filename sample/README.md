@@ -2,7 +2,7 @@
 
 ## Git training
 Les fichiers __starter__ servent de point de départ pour rejouer les démos / labs.  
-Les fichiers __finish__ repréetent le résultat obtenu à la fin de chaque module.
+Les fichiers __finish__ représetent le résultat obtenu à la fin de chaque module.
 
 ### Module 1 : Git Is Not What You Think
  - [starter](git/module01_starter.zip)
@@ -11,3 +11,7 @@ Les fichiers __finish__ repréetent le résultat obtenu à la fin de chaque modu
 ### Module 2 : Branches Demystified
  - [starter](git/module02_starter.zip)
  - [finish](git/module02_finish.zip)
+ 
+### Module 3 : Rebasing Made Simple
+ - [starter](git/module03_starter.zip)
+ - [finish](git/module03_finish.zip)
