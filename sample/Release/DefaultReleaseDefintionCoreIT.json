@@ -1,0 +1,1446 @@
+{
+	"source": 2,
+	"id": 1,
+	"revision": 90,
+	"name": "DMS_BO",
+	"description": null,
+	"createdBy": {
+		"id": "38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+		"displayName": "Florizon MBENKUI",
+		"uniqueName": "florizon.mbenkui.onepoint@axa.fr",
+		"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+		"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=38b19a5f-9274-681d-9f34-0b3cec8cb5d2&t=00000000-0000-0000-f000-a06d5127d508",
+		"inactive": true
+	},
+	"createdOn": "2017-03-07T14:24:07.900Z",
+	"modifiedBy": {
+		"id": "1bd4548f-6951-6129-a3a4-9af5bc5b48b5",
+		"displayName": "FAHAD Abdallah",
+		"uniqueName": "abdallah.fahad.inops@axa.fr",
+		"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/1bd4548f-6951-6129-a3a4-9af5bc5b48b5",
+		"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=1bd4548f-6951-6129-a3a4-9af5bc5b48b5&t=00000000-0000-0000-600a-df873c37d508"
+	},
+	"modifiedOn": "2017-12-08T13:35:28.267Z",
+	"isDeleted": false,
+	"path": "\\",
+	"variables": {
+		"AliseLogin": {
+			"value": "ALISE\\vstsafaagent"
+		},
+		"AlisePassword": {
+			"value": null,
+			"isSecret": true
+		},
+		"SetupLocationDir": {
+			"value": "\\dms-superadmin-release-delivery\\drop"
+		}
+	},
+	"variableGroups": [],
+	"environments": [{
+		"id": 12,
+		"name": "DEMO",
+		"rank": 1,
+		"owner": {
+			"id": "38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"displayName": "Florizon MBENKUI",
+			"uniqueName": "florizon.mbenkui.onepoint@axa.fr",
+			"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=38b19a5f-9274-681d-9f34-0b3cec8cb5d2&t=00000000-0000-0000-f000-a06d5127d508",
+			"inactive": true
+		},
+		"variables": {
+			"ApplicationPoolName1": {
+				"value": "APP_DMS_BO_DEMO"
+			},
+			"IISUserName1": {
+				"value": "DVAFAWEBCENTE02\\IIS_DMS_BO"
+			},
+			"IISUserPassword1": {
+				"value": null,
+				"isSecret": true
+			},
+			"MachineName1": {
+				"value": "dvafawebcente02.siege.pp.axa-fr.intraxa"
+			},
+			"Server_DeliveryDir": {
+				"value": "C:\\LIVRAISON\\DMS\\DEMO\\BO"
+			},
+			"WebSiteLocationDir1": {
+				"value": "C:\\InetPub\\APP_DMS_BO_DEMO"
+			},
+			"WebSiteName1": {
+				"value": "APP_DMS_BO_DEMO"
+			},
+			"WebSitePort": {
+				"value": "11006"
+			},
+			"WebSiteURL1": {
+				"value": "DVAFAWEBCENTE02.siege.pp.axa-fr.intraxa"
+			}
+		},
+		"variableGroups": [],
+		"preDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 34
+			}]
+		},
+		"deployStep": {
+			"id": 35
+		},
+		"postDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 36
+			}]
+		},
+		"deployPhases": [{
+			"deploymentInput": {
+				"parallelExecution": {
+					"parallelExecutionType": "none"
+				},
+				"skipArtifactsDownload": false,
+				"artifactsDownloadInput": {
+					"downloadInputs": []
+				},
+				"queueId": 831,
+				"demands": ["CoreIT"],
+				"enableAccessToken": false,
+				"timeoutInMinutes": 0,
+				"jobCancelTimeoutInMinutes": 1,
+				"condition": "succeeded()",
+				"overrideInputs": {}
+			},
+			"rank": 1,
+			"phaseType": 1,
+			"name": "Run on agent",
+			"workflowTasks": [{
+				"taskId": "a8515ec8-7254-4ffd-912c-86772e2b5962",
+				"version": "1.*",
+				"name": "Replace tokens in appsettings.demo.json",
+				"refName": "replacetokens_1",
+				"enabled": false,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootDirectory": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"targetFiles": "appsettings.demo.json",
+					"encoding": "auto",
+					"writeBOM": "true",
+					"actionOnMissing": "warn",
+					"keepToken": "false",
+					"tokenPrefix": "#{",
+					"tokenSuffix": "}#"
+				}
+			}, {
+				"taskId": "d8b84976-e99a-4b86-b885-4849694435b0",
+				"version": "1.*",
+				"name": "Archive files ",
+				"refName": "ArchiveFiles_2",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootFolder": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"includeRootFolder": "false",
+					"archiveType": "default",
+					"tarCompression": "gz",
+					"archiveFile": "$(System.DefaultWorkingDirectory)\\deploy\\dms-superadmin.zip",
+					"replaceExistingArchive": "true"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName1)",
+				"refName": "UdmCleanAndCopy_3",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName1)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "0f5cd14f-3c01-4d5c-8f7a-eb96c5738dcc",
+				"version": "1.*",
+				"name": "Manage IIS App: $(WebSiteName1)",
+				"refName": "IISWebAppMgmt_4",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"CreateWebsite": "true",
+					"WebsiteName": "$(WebSiteName1)",
+					"WebsitePhysicalPath": "$(WebSiteLocationDir1)",
+					"WebsitePhysicalPathAuth": "WebsiteUserPassThrough",
+					"WebsiteAuthUserName": "",
+					"WebsiteAuthUserPassword": "",
+					"AddBinding": "true",
+					"Protocol": "http",
+					"IPAddress": "All Unassigned",
+					"Port": "$(WebSitePort)",
+					"ServerNameIndication": "false",
+					"HostNameWithOutSNI": "",
+					"HostNameWithHttp": "$(WebSiteURL1)",
+					"HostNameWithSNI": "",
+					"SSLCertThumbPrint": "",
+					"CreateAppPool": "true",
+					"AppPoolName": "$(ApplicationPoolName1)",
+					"DotNetVersion": "No Managed Code",
+					"PipeLineMode": "Integrated",
+					"AppPoolIdentity": "SpecificUser",
+					"AppPoolUsername": "$(IISUserName1)",
+					"AppPoolPassword": "$(IISUserPassword1)",
+					"AppCmdCommands": "unlock config /section:basicAuthentication\nset config $(WebSiteName1) /section:basicAuthentication /enabled:false",
+					"DeployInParallel": "true"
+				}
+			}, {
+				"taskId": "50acc50f-7d15-470b-83c1-578b3f3eeba2",
+				"version": "1.*",
+				"name": "Deploy IIS App: $(Server_DeliveryDir)\\dms-superadmin.zip",
+				"refName": "IISWebAppDeploy_5",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"WebDeployPackage": "$(Server_DeliveryDir)\\dms-superadmin.zip",
+					"WebDeployParamFile": "",
+					"OverRideParams": "",
+					"WebsiteName": "$(WebSiteName1)",
+					"RemoveAdditionalFiles": "true",
+					"ExcludeFilesFromAppData": "false",
+					"TakeAppOffline": "true",
+					"AdditionalArguments": "",
+					"DeployInParallel": "true"
+				}
+			}]
+		}],
+		"environmentOptions": {
+			"emailNotificationType": "OnlyOnFailure",
+			"emailRecipients": "release.environment.owner;release.creator",
+			"skipArtifactsDownload": false,
+			"timeoutInMinutes": 0,
+			"enableAccessToken": false,
+			"publishDeploymentStatus": false
+		},
+		"demands": [],
+		"conditions": [{
+			"name": "ReleaseStarted",
+			"conditionType": 1,
+			"value": ""
+		}],
+		"executionPolicy": {
+			"concurrencyCount": 0,
+			"queueDepthCount": 0
+		},
+		"schedules": [],
+		"retentionPolicy": {
+			"daysToKeep": 30,
+			"releasesToKeep": 3,
+			"retainBuild": true
+		},
+		"processParameters": {},
+		"properties": {},
+		"preDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		},
+		"postDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		}
+	}, {
+		"id": 13,
+		"name": "DEV",
+		"rank": 2,
+		"owner": {
+			"id": "38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"displayName": "Florizon MBENKUI",
+			"uniqueName": "florizon.mbenkui.onepoint@axa.fr",
+			"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=38b19a5f-9274-681d-9f34-0b3cec8cb5d2&t=00000000-0000-0000-f000-a06d5127d508",
+			"inactive": true
+		},
+		"variables": {
+			"ApplicationPoolName1": {
+				"value": "APP_DMS_BO_DEMO"
+			},
+			"IISUserName1": {
+				"value": "DVAFAWEBCENTE02\\IIS_DMS_BO"
+			},
+			"IISUserPassword1": {
+				"value": null,
+				"isSecret": true
+			},
+			"MachineName1": {
+				"value": "dvafawebcente02.siege.pp.axa-fr.intraxa"
+			},
+			"Server_DeliveryDir": {
+				"value": "C:\\LIVRAISON\\DMS\\DEV\\BO"
+			},
+			"WebSiteLocationDir1": {
+				"value": "C:\\InetPub\\APP_DMS_BO_DEV"
+			},
+			"WebSiteName1": {
+				"value": "APP_DMS_BO_DEV"
+			},
+			"WebSitePort": {
+				"value": "12006"
+			},
+			"WebSiteURL1": {
+				"value": "DVAFAWEBCENTE02.siege.pp.axa-fr.intraxa"
+			}
+		},
+		"variableGroups": [],
+		"preDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 37
+			}]
+		},
+		"deployStep": {
+			"id": 38
+		},
+		"postDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 39
+			}]
+		},
+		"deployPhases": [{
+			"deploymentInput": {
+				"parallelExecution": {
+					"parallelExecutionType": "none"
+				},
+				"skipArtifactsDownload": false,
+				"artifactsDownloadInput": {
+					"downloadInputs": []
+				},
+				"queueId": 831,
+				"demands": ["CoreIT"],
+				"enableAccessToken": false,
+				"timeoutInMinutes": 0,
+				"jobCancelTimeoutInMinutes": 1,
+				"condition": "succeeded()",
+				"overrideInputs": {}
+			},
+			"rank": 1,
+			"phaseType": 1,
+			"name": "Run on agent",
+			"workflowTasks": [{
+				"taskId": "a8515ec8-7254-4ffd-912c-86772e2b5962",
+				"version": "1.*",
+				"name": "Replace tokens in appsettings.demo.json",
+				"refName": "replacetokens_1",
+				"enabled": false,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootDirectory": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"targetFiles": "appsettings.demo.json",
+					"encoding": "auto",
+					"writeBOM": "true",
+					"actionOnMissing": "warn",
+					"keepToken": "false",
+					"tokenPrefix": "#{",
+					"tokenSuffix": "}#"
+				}
+			}, {
+				"taskId": "d8b84976-e99a-4b86-b885-4849694435b0",
+				"version": "1.*",
+				"name": "Archive files ",
+				"refName": "ArchiveFiles_2",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootFolder": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"includeRootFolder": "false",
+					"archiveType": "default",
+					"tarCompression": "gz",
+					"archiveFile": "$(System.DefaultWorkingDirectory)\\deploy\\dms-superadmin.zip",
+					"replaceExistingArchive": "true"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName1)",
+				"refName": "UdmCleanAndCopy_3",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName1)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "0f5cd14f-3c01-4d5c-8f7a-eb96c5738dcc",
+				"version": "1.*",
+				"name": "Manage IIS App: $(WebSiteName1)",
+				"refName": "IISWebAppMgmt_4",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"CreateWebsite": "true",
+					"WebsiteName": "$(WebSiteName1)",
+					"WebsitePhysicalPath": "$(WebSiteLocationDir1)",
+					"WebsitePhysicalPathAuth": "WebsiteUserPassThrough",
+					"WebsiteAuthUserName": "",
+					"WebsiteAuthUserPassword": "",
+					"AddBinding": "true",
+					"Protocol": "http",
+					"IPAddress": "All Unassigned",
+					"Port": "$(WebSitePort)",
+					"ServerNameIndication": "false",
+					"HostNameWithOutSNI": "",
+					"HostNameWithHttp": "$(WebSiteURL1)",
+					"HostNameWithSNI": "",
+					"SSLCertThumbPrint": "",
+					"CreateAppPool": "true",
+					"AppPoolName": "$(ApplicationPoolName1)",
+					"DotNetVersion": "No Managed Code",
+					"PipeLineMode": "Integrated",
+					"AppPoolIdentity": "SpecificUser",
+					"AppPoolUsername": "$(IISUserName1)",
+					"AppPoolPassword": "$(IISUserPassword1)",
+					"AppCmdCommands": "unlock config /section:basicAuthentication\nset config $(WebSiteName1) /section:basicAuthentication /enabled:false",
+					"DeployInParallel": "true"
+				}
+			}, {
+				"taskId": "50acc50f-7d15-470b-83c1-578b3f3eeba2",
+				"version": "1.*",
+				"name": "Deploy IIS App: $(Server_DeliveryDir)\\dms-superadmin.zip",
+				"refName": "IISWebAppDeploy_5",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"WebDeployPackage": "$(Server_DeliveryDir)\\dms-superadmin.zip",
+					"WebDeployParamFile": "",
+					"OverRideParams": "",
+					"WebsiteName": "$(WebSiteName1)",
+					"RemoveAdditionalFiles": "true",
+					"ExcludeFilesFromAppData": "false",
+					"TakeAppOffline": "true",
+					"AdditionalArguments": "",
+					"DeployInParallel": "true"
+				}
+			}]
+		}],
+		"environmentOptions": {
+			"emailNotificationType": "OnlyOnFailure",
+			"emailRecipients": "release.environment.owner;release.creator",
+			"skipArtifactsDownload": false,
+			"timeoutInMinutes": 0,
+			"enableAccessToken": false,
+			"publishDeploymentStatus": false
+		},
+		"demands": [],
+		"conditions": [{
+			"name": "DEMO",
+			"conditionType": 2,
+			"value": "4"
+		}],
+		"executionPolicy": {
+			"concurrencyCount": 0,
+			"queueDepthCount": 0
+		},
+		"schedules": [],
+		"retentionPolicy": {
+			"daysToKeep": 30,
+			"releasesToKeep": 3,
+			"retainBuild": true
+		},
+		"processParameters": {},
+		"properties": {},
+		"preDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		},
+		"postDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		}
+	}, {
+		"id": 1,
+		"name": "RECETTE",
+		"rank": 3,
+		"owner": {
+			"id": "38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"displayName": "Florizon MBENKUI",
+			"uniqueName": "florizon.mbenkui.onepoint@axa.fr",
+			"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=38b19a5f-9274-681d-9f34-0b3cec8cb5d2&t=00000000-0000-0000-f000-a06d5127d508",
+			"inactive": true
+		},
+		"variables": {
+			"ApplicationPoolName1": {
+				"value": "APP_DMS_BO_RECPRJ"
+			},
+			"DB_USER_PASSWORD": {
+				"value": "dmeduser1"
+			},
+			"IISUserName1": {
+				"value": "IIS_DMS_BO"
+			},
+			"IISUserPassword1": {
+				"value": null,
+				"isSecret": true
+			},
+			"MachineName1": {
+				"value": "RCAFAADNINT11.dmzppappafa.intraxa"
+			},
+			"MachineName2": {
+				"value": "RCAFAADNINT12.dmzppappafa.intraxa"
+			},
+			"Server_DeliveryDir": {
+				"value": "E:\\ICE\\LIVRAISON\\DMS"
+			},
+			"WebSiteLocationDir1": {
+				"value": "E:\\InetPub\\APP_DMS_BO_RECPRJ"
+			},
+			"WebSiteName1": {
+				"value": "APP_DMS_BO_RECPRJ"
+			},
+			"WebSitePort": {
+				"value": "8080"
+			},
+			"WebSiteURL1": {
+				"value": "online-medical-bo-recprj.axa-fr.intraxa"
+			}
+		},
+		"variableGroups": [],
+		"preDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": false,
+				"isNotificationOn": false,
+				"approver": {
+					"id": "40ef13f7-3fad-4826-9c22-7a1127cbe227",
+					"displayName": "[TEAM FOUNDATION]\\ICE Open - Plateform Engineer",
+					"uniqueName": "vstfs:///Framework/IdentityDomain/e3f6760c-15be-4fbf-8355-748ea734e752\\ICE Open - Plateform Engineer",
+					"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/40ef13f7-3fad-4826-9c22-7a1127cbe227",
+					"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=40ef13f7-3fad-4826-9c22-7a1127cbe227&t=00000000-0000-0000-0000-000000000000",
+					"isContainer": true
+				},
+				"id": 48
+			}],
+			"approvalOptions": {
+				"requiredApproverCount": 0,
+				"releaseCreatorCanBeApprover": true,
+				"autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+				"enforceIdentityRevalidation": false,
+				"timeoutInMinutes": 0,
+				"executionOrder": 1
+			}
+		},
+		"deployStep": {
+			"id": 2
+		},
+		"postDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 3
+			}]
+		},
+		"deployPhases": [{
+			"deploymentInput": {
+				"parallelExecution": {
+					"parallelExecutionType": "none"
+				},
+				"skipArtifactsDownload": false,
+				"artifactsDownloadInput": {
+					"downloadInputs": []
+				},
+				"queueId": 831,
+				"demands": ["CoreIT"],
+				"enableAccessToken": false,
+				"timeoutInMinutes": 0,
+				"jobCancelTimeoutInMinutes": 1,
+				"condition": "succeeded()",
+				"overrideInputs": {}
+			},
+			"rank": 1,
+			"phaseType": 1,
+			"name": "Run on agent",
+			"workflowTasks": [{
+				"taskId": "a8515ec8-7254-4ffd-912c-86772e2b5962",
+				"version": "1.*",
+				"name": "Replace tokens in appsettings.recette.json",
+				"refName": "replacetokens_1",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootDirectory": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"targetFiles": "appsettings.recette.json",
+					"encoding": "auto",
+					"writeBOM": "true",
+					"actionOnMissing": "warn",
+					"keepToken": "false",
+					"tokenPrefix": "#{",
+					"tokenSuffix": "}#"
+				}
+			}, {
+				"taskId": "d8b84976-e99a-4b86-b885-4849694435b0",
+				"version": "1.*",
+				"name": "Archive files ",
+				"refName": "ArchiveFiles_2",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootFolder": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"includeRootFolder": "false",
+					"archiveType": "default",
+					"tarCompression": "gz",
+					"archiveFile": "$(System.DefaultWorkingDirectory)\\deploy\\dms-superadmin.zip",
+					"replaceExistingArchive": "true"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName1)",
+				"refName": "UdmCleanAndCopy_3",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName1)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName2)",
+				"refName": "UdmCleanAndCopy_4",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName2)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "0f5cd14f-3c01-4d5c-8f7a-eb96c5738dcc",
+				"version": "1.*",
+				"name": "Manage IIS App: $(WebSiteName1) $(WebSiteName2)",
+				"refName": "IISWebAppMgmt_5",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986, $(MachineName2):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"CreateWebsite": "true",
+					"WebsiteName": "$(WebSiteName1)",
+					"WebsitePhysicalPath": "$(WebSiteLocationDir1)",
+					"WebsitePhysicalPathAuth": "WebsiteUserPassThrough",
+					"WebsiteAuthUserName": "",
+					"WebsiteAuthUserPassword": "",
+					"AddBinding": "true",
+					"Protocol": "http",
+					"IPAddress": "All Unassigned",
+					"Port": "$(WebSitePort)",
+					"ServerNameIndication": "false",
+					"HostNameWithOutSNI": "",
+					"HostNameWithHttp": "$(WebSiteURL1)",
+					"HostNameWithSNI": "",
+					"SSLCertThumbPrint": "",
+					"CreateAppPool": "true",
+					"AppPoolName": "$(ApplicationPoolName1)",
+					"DotNetVersion": "No Managed Code",
+					"PipeLineMode": "Integrated",
+					"AppPoolIdentity": "SpecificUser",
+					"AppPoolUsername": "$(IISUserName1)",
+					"AppPoolPassword": "$(IISUserPassword1)",
+					"AppCmdCommands": "unlock config /section:basicAuthentication\nset config $(WebSiteName1) /section:basicAuthentication /enabled:false",
+					"DeployInParallel": "true"
+				}
+			}, {
+				"taskId": "50acc50f-7d15-470b-83c1-578b3f3eeba2",
+				"version": "1.*",
+				"name": "Deploy IIS App: $(Server_DeliveryDir)\\dms-superadmin.zip",
+				"refName": "IISWebAppDeploy_6",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986, $(MachineName2):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"WebDeployPackage": "$(Server_DeliveryDir)\\dms-superadmin.zip",
+					"WebDeployParamFile": "",
+					"OverRideParams": "",
+					"WebsiteName": "$(WebSiteName1)",
+					"RemoveAdditionalFiles": "true",
+					"ExcludeFilesFromAppData": "false",
+					"TakeAppOffline": "true",
+					"AdditionalArguments": "",
+					"DeployInParallel": "true"
+				}
+			}]
+		}],
+		"environmentOptions": {
+			"emailNotificationType": "OnlyOnFailure",
+			"emailRecipients": "release.environment.owner;release.creator",
+			"skipArtifactsDownload": false,
+			"timeoutInMinutes": 0,
+			"enableAccessToken": false,
+			"publishDeploymentStatus": false
+		},
+		"demands": [],
+		"conditions": [],
+		"executionPolicy": {
+			"concurrencyCount": 0,
+			"queueDepthCount": 0
+		},
+		"schedules": [],
+		"retentionPolicy": {
+			"daysToKeep": 30,
+			"releasesToKeep": 3,
+			"retainBuild": true
+		},
+		"processParameters": {},
+		"properties": {},
+		"preDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		},
+		"postDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		}
+	}, {
+		"id": 2,
+		"name": "PRE-PRODUCTON",
+		"rank": 4,
+		"owner": {
+			"id": "38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"displayName": "Florizon MBENKUI",
+			"uniqueName": "florizon.mbenkui.onepoint@axa.fr",
+			"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=38b19a5f-9274-681d-9f34-0b3cec8cb5d2&t=00000000-0000-0000-f000-a06d5127d508",
+			"inactive": true
+		},
+		"variables": {
+			"ApplicationPoolName1": {
+				"value": "APP_DMS_BO_PPRD"
+			},
+			"DB_USER_PASSWORD": {
+				"value": null,
+				"isSecret": true
+			},
+			"IISUserName1": {
+				"value": "IIS_DMS_BO"
+			},
+			"IISUserPassword1": {
+				"value": null,
+				"isSecret": true
+			},
+			"MachineName1": {
+				"value": "PPAFAADNINT41.dmzppappafa.intraxa"
+			},
+			"MachineName2": {
+				"value": "PPAFAADNINT42.dmzppappafa.intraxa"
+			},
+			"Server_DeliveryDir": {
+				"value": "E:\\LIVRAISONS\\DMS"
+			},
+			"WebSiteLocationDir1": {
+				"value": "E:\\InetPub\\APP_DMS_BO_PPRD"
+			},
+			"WebSiteName1": {
+				"value": "APP_DMS_BO_PPRD"
+			},
+			"WebSitePort": {
+				"value": "8080"
+			},
+			"WebSiteURL1": {
+				"value": "online-medical-bo-pp.axa-fr.intraxa"
+			}
+		},
+		"variableGroups": [],
+		"preDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 4
+			}]
+		},
+		"deployStep": {
+			"id": 5
+		},
+		"postDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 6
+			}]
+		},
+		"deployPhases": [{
+			"deploymentInput": {
+				"parallelExecution": {
+					"parallelExecutionType": "none"
+				},
+				"skipArtifactsDownload": false,
+				"artifactsDownloadInput": {
+					"downloadInputs": []
+				},
+				"queueId": 831,
+				"demands": ["CoreIT"],
+				"enableAccessToken": false,
+				"timeoutInMinutes": 0,
+				"jobCancelTimeoutInMinutes": 1,
+				"condition": "succeeded()",
+				"overrideInputs": {}
+			},
+			"rank": 1,
+			"phaseType": 1,
+			"name": "Run on agent",
+			"workflowTasks": [{
+				"taskId": "a8515ec8-7254-4ffd-912c-86772e2b5962",
+				"version": "1.*",
+				"name": "Replace tokens in appsettings.pprd.json",
+				"refName": "replacetokens_1",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootDirectory": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"targetFiles": "appsettings.pprd.json",
+					"encoding": "auto",
+					"writeBOM": "true",
+					"actionOnMissing": "warn",
+					"keepToken": "false",
+					"tokenPrefix": "#{",
+					"tokenSuffix": "}#"
+				}
+			}, {
+				"taskId": "d8b84976-e99a-4b86-b885-4849694435b0",
+				"version": "1.*",
+				"name": "Archive files ",
+				"refName": "ArchiveFiles_2",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootFolder": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"includeRootFolder": "false",
+					"archiveType": "default",
+					"tarCompression": "gz",
+					"archiveFile": "$(System.DefaultWorkingDirectory)\\deploy\\dms-superadmin.zip",
+					"replaceExistingArchive": "true"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName1)",
+				"refName": "UdmCleanAndCopy_3",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName1)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName2)",
+				"refName": "UdmCleanAndCopy_4",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName2)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "0f5cd14f-3c01-4d5c-8f7a-eb96c5738dcc",
+				"version": "1.*",
+				"name": "Manage IIS App: $(WebSiteName1) $(WebSiteName2)",
+				"refName": "IISWebAppMgmt_5",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986, $(MachineName2):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"CreateWebsite": "true",
+					"WebsiteName": "$(WebSiteName1)",
+					"WebsitePhysicalPath": "$(WebSiteLocationDir1)",
+					"WebsitePhysicalPathAuth": "WebsiteUserPassThrough",
+					"WebsiteAuthUserName": "",
+					"WebsiteAuthUserPassword": "",
+					"AddBinding": "true",
+					"Protocol": "http",
+					"IPAddress": "All Unassigned",
+					"Port": "$(WebSitePort)",
+					"ServerNameIndication": "false",
+					"HostNameWithOutSNI": "",
+					"HostNameWithHttp": "$(WebSiteURL1)",
+					"HostNameWithSNI": "",
+					"SSLCertThumbPrint": "",
+					"CreateAppPool": "true",
+					"AppPoolName": "$(ApplicationPoolName1)",
+					"DotNetVersion": "No Managed Code",
+					"PipeLineMode": "Integrated",
+					"AppPoolIdentity": "SpecificUser",
+					"AppPoolUsername": "$(IISUserName1)",
+					"AppPoolPassword": "$(IISUserPassword1)",
+					"AppCmdCommands": "unlock config /section:basicAuthentication\nset config $(WebSiteName1) /section:basicAuthentication /enabled:false",
+					"DeployInParallel": "true"
+				}
+			}, {
+				"taskId": "50acc50f-7d15-470b-83c1-578b3f3eeba2",
+				"version": "1.*",
+				"name": "Deploy IIS App: $(Server_DeliveryDir)\\dms-superadmin.zip",
+				"refName": "IISWebAppDeploy_6",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986, $(MachineName2):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"WebDeployPackage": "$(Server_DeliveryDir)\\dms-superadmin.zip",
+					"WebDeployParamFile": "",
+					"OverRideParams": "",
+					"WebsiteName": "$(WebSiteName1)",
+					"RemoveAdditionalFiles": "true",
+					"ExcludeFilesFromAppData": "false",
+					"TakeAppOffline": "true",
+					"AdditionalArguments": "",
+					"DeployInParallel": "true"
+				}
+			}]
+		}],
+		"environmentOptions": {
+			"emailNotificationType": "OnlyOnFailure",
+			"emailRecipients": "release.environment.owner;release.creator",
+			"skipArtifactsDownload": false,
+			"timeoutInMinutes": 0,
+			"enableAccessToken": false,
+			"publishDeploymentStatus": false
+		},
+		"demands": [],
+		"conditions": [],
+		"executionPolicy": {
+			"concurrencyCount": 0,
+			"queueDepthCount": 0
+		},
+		"schedules": [],
+		"retentionPolicy": {
+			"daysToKeep": 30,
+			"releasesToKeep": 3,
+			"retainBuild": true
+		},
+		"processParameters": {},
+		"properties": {},
+		"preDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		},
+		"postDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		}
+	}, {
+		"id": 6,
+		"name": "PRODUCTON",
+		"rank": 5,
+		"owner": {
+			"id": "38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"displayName": "Florizon MBENKUI",
+			"uniqueName": "florizon.mbenkui.onepoint@axa.fr",
+			"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/38b19a5f-9274-681d-9f34-0b3cec8cb5d2",
+			"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=38b19a5f-9274-681d-9f34-0b3cec8cb5d2&t=00000000-0000-0000-f000-a06d5127d508",
+			"inactive": true
+		},
+		"variables": {
+			"ApplicationPoolName1": {
+				"value": "APP_DMS_BO_PROD"
+			},
+			"DB_USER_PASSWORD": {
+				"value": null,
+				"isSecret": true
+			},
+			"IISUserName1": {
+				"value": "IIS_DMS_BO"
+			},
+			"IISUserPassword1": {
+				"value": null,
+				"isSecret": true
+			},
+			"MachineName1": {
+				"value": "PRAFAADNINT41.dmzappafa.intraxa"
+			},
+			"MachineName2": {
+				"value": "PRAFAADNINT42.dmzappafa.intraxa"
+			},
+			"Server_DeliveryDir": {
+				"value": "E:\\LIVRAISONS\\DMS"
+			},
+			"WebSiteLocationDir1": {
+				"value": "E:\\InetPub\\APP_DMS_BO_PROD"
+			},
+			"WebSiteName1": {
+				"value": "APP_DMS_BO_PROD"
+			},
+			"WebSitePort": {
+				"value": "8080"
+			},
+			"WebSiteURL1": {
+				"value": "online-medical-bo.axa-fr.intraxa"
+			}
+		},
+		"variableGroups": [],
+		"preDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 16
+			}]
+		},
+		"deployStep": {
+			"id": 17
+		},
+		"postDeployApprovals": {
+			"approvals": [{
+				"rank": 1,
+				"isAutomated": true,
+				"isNotificationOn": false,
+				"id": 18
+			}]
+		},
+		"deployPhases": [{
+			"deploymentInput": {
+				"parallelExecution": {
+					"parallelExecutionType": "none"
+				},
+				"skipArtifactsDownload": false,
+				"artifactsDownloadInput": {
+					"downloadInputs": []
+				},
+				"queueId": 831,
+				"demands": ["CoreIT"],
+				"enableAccessToken": false,
+				"timeoutInMinutes": 0,
+				"jobCancelTimeoutInMinutes": 1,
+				"condition": "succeeded()",
+				"overrideInputs": {}
+			},
+			"rank": 1,
+			"phaseType": 1,
+			"name": "Run on agent",
+			"workflowTasks": [{
+				"taskId": "a8515ec8-7254-4ffd-912c-86772e2b5962",
+				"version": "1.*",
+				"name": "Replace tokens in appsettings.prod.json",
+				"refName": "replacetokens_1",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootDirectory": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"targetFiles": "appsettings.prod.json",
+					"encoding": "auto",
+					"writeBOM": "true",
+					"actionOnMissing": "warn",
+					"keepToken": "false",
+					"tokenPrefix": "#{",
+					"tokenSuffix": "}#"
+				}
+			}, {
+				"taskId": "d8b84976-e99a-4b86-b885-4849694435b0",
+				"version": "1.*",
+				"name": "Archive files ",
+				"refName": "ArchiveFiles_2",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"rootFolder": "$(System.DefaultWorkingDirectory)/dms-superadmin-release-delivery/drop",
+					"includeRootFolder": "false",
+					"archiveType": "default",
+					"tarCompression": "gz",
+					"archiveFile": "$(System.DefaultWorkingDirectory)\\deploy\\dms-superadmin.zip",
+					"replaceExistingArchive": "true"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName1)",
+				"refName": "UdmCleanAndCopy_3",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName1)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "28a01030-54d3-11e6-b367-cd9e51c6b6c6",
+				"version": "1.*",
+				"name": "Clean And Copy on $(MachineName2)",
+				"refName": "UdmCleanAndCopy_4",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"destinationMachine": "$(MachineName2)",
+					"destinationUserName": "$(AliseLogin)",
+					"destinationPassword": "$(AlisePassword)",
+					"sourcePath": "$(System.DefaultWorkingDirectory)\\deploy",
+					"destinationPath": "$(Server_DeliveryDir)",
+					"failOnStandardError": "false"
+				}
+			}, {
+				"taskId": "0f5cd14f-3c01-4d5c-8f7a-eb96c5738dcc",
+				"version": "1.*",
+				"name": "Manage IIS App: $(WebSiteName1) $(WebSiteName2)",
+				"refName": "IISWebAppMgmt_5",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986, $(MachineName2):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"CreateWebsite": "true",
+					"WebsiteName": "$(WebSiteName1)",
+					"WebsitePhysicalPath": "$(WebSiteLocationDir1)",
+					"WebsitePhysicalPathAuth": "WebsiteUserPassThrough",
+					"WebsiteAuthUserName": "",
+					"WebsiteAuthUserPassword": "",
+					"AddBinding": "true",
+					"Protocol": "http",
+					"IPAddress": "All Unassigned",
+					"Port": "$(WebSitePort)",
+					"ServerNameIndication": "false",
+					"HostNameWithOutSNI": "",
+					"HostNameWithHttp": "$(WebSiteURL1)",
+					"HostNameWithSNI": "",
+					"SSLCertThumbPrint": "",
+					"CreateAppPool": "true",
+					"AppPoolName": "$(ApplicationPoolName1)",
+					"DotNetVersion": "No Managed Code",
+					"PipeLineMode": "Integrated",
+					"AppPoolIdentity": "SpecificUser",
+					"AppPoolUsername": "$(IISUserName1)",
+					"AppPoolPassword": "$(IISUserPassword1)",
+					"AppCmdCommands": "unlock config /section:basicAuthentication\nset config $(WebSiteName1) /section:basicAuthentication /enabled:false",
+					"DeployInParallel": "true"
+				}
+			}, {
+				"taskId": "50acc50f-7d15-470b-83c1-578b3f3eeba2",
+				"version": "1.*",
+				"name": "Deploy IIS App: $(Server_DeliveryDir)\\dms-superadmin.zip",
+				"refName": "IISWebAppDeploy_6",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"machinesList": "$(MachineName1):5986, $(MachineName2):5986",
+					"AdminUserName": "$(AliseLogin)",
+					"AdminPassword": "$(AlisePassword)",
+					"WinRMProtocol": "Https",
+					"TestCertificate": "true",
+					"WebDeployPackage": "$(Server_DeliveryDir)\\dms-superadmin.zip",
+					"WebDeployParamFile": "",
+					"OverRideParams": "",
+					"WebsiteName": "$(WebSiteName1)",
+					"RemoveAdditionalFiles": "true",
+					"ExcludeFilesFromAppData": "false",
+					"TakeAppOffline": "true",
+					"AdditionalArguments": "",
+					"DeployInParallel": "true"
+				}
+			}]
+		}],
+		"environmentOptions": {
+			"emailNotificationType": "OnlyOnFailure",
+			"emailRecipients": "release.environment.owner;release.creator",
+			"skipArtifactsDownload": false,
+			"timeoutInMinutes": 0,
+			"enableAccessToken": false,
+			"publishDeploymentStatus": false
+		},
+		"demands": [],
+		"conditions": [],
+		"executionPolicy": {
+			"concurrencyCount": 0,
+			"queueDepthCount": 0
+		},
+		"schedules": [],
+		"retentionPolicy": {
+			"daysToKeep": 30,
+			"releasesToKeep": 3,
+			"retainBuild": true
+		},
+		"processParameters": {},
+		"properties": {},
+		"preDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		},
+		"postDeploymentGates": {
+			"id": 0,
+			"gatesOptions": null,
+			"gates": []
+		}
+	}],
+	"artifacts": [{
+		"sourceId": "0a72b361-0275-4e26-9ed1-5808c648d981:470",
+		"type": "Build",
+		"alias": "dms-superadmin-release-delivery",
+		"definitionReference": {
+			"artifactSourceDefinitionUrl": {
+				"id": "https://axafrance.visualstudio.com/_permalink/_build/index?collectionId=5e633e68-a8fb-4da6-b730-be67d3b69326&projectId=0a72b361-0275-4e26-9ed1-5808c648d981&definitionId=470",
+				"name": ""
+			},
+			"defaultVersionBranch": {
+				"id": "",
+				"name": ""
+			},
+			"defaultVersionSpecific": {
+				"id": "",
+				"name": ""
+			},
+			"defaultVersionTags": {
+				"id": "",
+				"name": ""
+			},
+			"defaultVersionType": {
+				"id": "latestType",
+				"name": "Latest"
+			},
+			"definition": {
+				"id": "470",
+				"name": "dms-superadmin-release-delivery"
+			},
+			"project": {
+				"id": "0a72b361-0275-4e26-9ed1-5808c648d981",
+				"name": "DMS"
+			}
+		},
+		"isPrimary": true
+	}],
+	"triggers": [{
+		"artifactAlias": "dms-superadmin-release-delivery",
+		"triggerConditions": [{
+			"sourceBranch": "*",
+			"tags": [],
+			"useBuildDefinitionBranch": false
+		}],
+		"triggerType": 1
+	}],
+	"releaseNameFormat": "dms-admin-front-$(date:yyyyMMdd)$(rev:.r)",
+	"url": "https://axafrance.vsrm.visualstudio.com/0a72b361-0275-4e26-9ed1-5808c648d981/_apis/Release/definitions/1",
+	"_links": {
+		"self": {
+			"href": "https://axafrance.vsrm.visualstudio.com/0a72b361-0275-4e26-9ed1-5808c648d981/_apis/Release/definitions/1"
+		},
+		"web": {
+			"href": "https://axafrance.visualstudio.com/0a72b361-0275-4e26-9ed1-5808c648d981/_release?definitionId=1"
+		}
+	},
+	"tags": [],
+	"properties": {}
+}
