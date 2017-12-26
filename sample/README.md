@@ -15,3 +15,7 @@ Les fichiers __finish__ représetent le résultat obtenu à la fin de chaque mod
 ### Module 3 : Rebasing Made Simple
  - [starter](git/module03_starter.zip)
  - [finish](git/module03_finish.zip)
+  
+### Module 4 : Distributed Version Control
+ - [starter](git/module04_starter.zip)
+ - [finish](git/module04_finish.zip)
