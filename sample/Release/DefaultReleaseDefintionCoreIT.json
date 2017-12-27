@@ -1,7 +1,7 @@
 {
 	"source": 2,
 	"id": 8,
-	"revision": 2,
+	"revision": 8,
 	"name": "DefaultRelease-%TRIGRAMME%",
 	"description": null,
 	"createdBy": {
@@ -19,7 +19,7 @@
 		"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/abc07f93-0e7b-4a8c-8d14-baee38255655",
 		"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=abc07f93-0e7b-4a8c-8d14-baee38255655&t=00000000-0000-0000-90bc-0bac5da7d408"
 	},
-	"modifiedOn": "2017-12-27T11:26:41.487Z",
+	"modifiedOn": "2017-12-27T11:38:34.897Z",
 	"isDeleted": false,
 	"path": "\\",
 	"variables": {
@@ -29,9 +29,6 @@
 		"AlisePassword": {
 			"value": null,
 			"isSecret": true
-		},
-		"TRIGRAMME": {
-			"value": "%TRIGRAMME%"
 		}
 	},
 	"variableGroups": [],
@@ -108,6 +105,44 @@
 			"phaseType": 1,
 			"name": "Run on agent",
 			"workflowTasks": [{
+				"taskId": "9ccfb3bb-7ec0-4626-8599-164b1f95f933",
+				"version": "1.*",
+				"name": "Transform value '$(Release.DefinitionName)' and assign to variable: TRIGRAMME",
+				"refName": "VariableTransformTask2",
+				"enabled": true,
+				"alwaysRun": false,
+				"continueOnError": false,
+				"timeoutInMinutes": 0,
+				"definitionType": "task",
+				"overrideInputs": {},
+				"condition": "succeeded()",
+				"inputs": {
+					"value": "$(Release.DefinitionName)",
+					"variableName": "TRIGRAMME",
+					"transformAction": "none",
+					"encodeOrDecode": "encodeString",
+					"pointInTime": "afterManipulation",
+					"searchReplace": "false",
+					"searchReplaceMethod": "basic",
+					"searchValue": "",
+					"replacementValue": "",
+					"regexOptions": "",
+					"trim": "false",
+					"slice": "false",
+					"sliceLeft": "",
+					"sliceRight": "",
+					"substring": "true",
+					"substringType": "right",
+					"substringStart": "",
+					"substringLength": "3",
+					"casing": "true",
+					"casingType": "toUpper",
+					"pad": "false",
+					"padType": "right",
+					"padChar": "",
+					"padLength": "3"
+				}
+			}, {
 				"taskId": "a8515ec8-7254-4ffd-912c-86772e2b5962",
 				"version": "1.*",
 				"name": "Replace tokens in Web.config",
