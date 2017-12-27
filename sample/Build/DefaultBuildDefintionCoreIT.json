@@ -46,9 +46,6 @@
 		"system.debug": {
 			"value": "false",
 			"allowOverride": true
-		},
-		"TRIGRAMME": {
-			"value": "KMA"
 		}
 	},
 	"retentionRules": [{
@@ -60,15 +57,49 @@
 		"deleteBuildRecord": true,
 		"deleteTestResults": true
 	}],
+	"metrics": [{
+		"name": "CurrentBuildsInQueue",
+		"scope": "refs/heads/feature/KMA",
+		"intValue": 0
+	}, {
+		"name": "CurrentBuildsInProgress",
+		"scope": "refs/heads/feature/KMA",
+		"intValue": 0
+	}, {
+		"name": "CanceledBuilds",
+		"scope": "refs/heads/feature/KMA",
+		"intValue": 0,
+		"date": "2017-12-27T00:00:00.000Z"
+	}, {
+		"name": "FailedBuilds",
+		"scope": "refs/heads/feature/KMA",
+		"intValue": 0,
+		"date": "2017-12-27T00:00:00.000Z"
+	}, {
+		"name": "PartiallySuccessfulBuilds",
+		"scope": "refs/heads/feature/KMA",
+		"intValue": 0,
+		"date": "2017-12-27T00:00:00.000Z"
+	}, {
+		"name": "SuccessfulBuilds",
+		"scope": "refs/heads/feature/KMA",
+		"intValue": 3,
+		"date": "2017-12-27T00:00:00.000Z"
+	}, {
+		"name": "TotalBuilds",
+		"scope": "refs/heads/feature/KMA",
+		"intValue": 3,
+		"date": "2017-12-27T00:00:00.000Z"
+	}],
 	"_links": {
 		"self": {
-			"href": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/build/Definitions/1527"
+			"href": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/build/Definitions/1529"
 		},
 		"web": {
-			"href": "https://axafrance.visualstudio.com/_permalink/_build/index?collectionId=5e633e68-a8fb-4da6-b730-be67d3b69326&projectId=c88b1be1-431a-4f93-800a-49c74bf1c1c6&definitionId=1527"
+			"href": "https://axafrance.visualstudio.com/_permalink/_build/index?collectionId=5e633e68-a8fb-4da6-b730-be67d3b69326&projectId=c88b1be1-431a-4f93-800a-49c74bf1c1c6&definitionId=1529"
 		},
 		"editor": {
-			"href": "https://axafrance.visualstudio.com/_permalink/_build/definitionEditor?collectionId=5e633e68-a8fb-4da6-b730-be67d3b69326&projectId=c88b1be1-431a-4f93-800a-49c74bf1c1c6&definitionId=1527"
+			"href": "https://axafrance.visualstudio.com/_permalink/_build/definitionEditor?collectionId=5e633e68-a8fb-4da6-b730-be67d3b69326&projectId=c88b1be1-431a-4f93-800a-49c74bf1c1c6&definitionId=1529"
 		}
 	},
 	"buildNumberFormat": "$(Build.DefinitionName)-$(date:yyyyMMdd)$(rev:.r)",
@@ -171,28 +202,6 @@
 				"enabled": true,
 				"continueOnError": false,
 				"alwaysRun": false,
-				"displayName": "Copy Files to: $(build.artifactstagingdirectory)\\webdeploy",
-				"timeoutInMinutes": 0,
-				"condition": "succeeded()",
-				"refName": "CopyFiles1",
-				"task": {
-					"id": "5bfb729a-a7c8-4a78-a7c3-8d717bb7c13c",
-					"versionSpec": "2.*",
-					"definitionType": "task"
-				},
-				"inputs": {
-					"SourceFolder": "src/app/source/DefaultApplication/DefaultApplication",
-					"Contents": "Web.config",
-					"TargetFolder": "$(build.artifactstagingdirectory)\\webdeploy",
-					"CleanTargetFolder": "false",
-					"OverWrite": "true",
-					"flattenFolders": "false"
-				}
-			}, {
-				"environment": {},
-				"enabled": true,
-				"continueOnError": false,
-				"alwaysRun": false,
 				"displayName": "Publish Artifact",
 				"timeoutInMinutes": 0,
 				"refName": "PublishBuildArtifacts6",
@@ -248,7 +257,7 @@
 		"type": "GitHub",
 		"name": "kmahmou/passion",
 		"url": "https://github.com/kmahmou/passion.git",
-		"defaultBranch": "develop",
+		"defaultBranch": "feature/KMA",
 		"clean": "true",
 		"checkoutSubmodules": false
 	},
@@ -296,15 +305,15 @@
 			"name": "AzureWindowsBuild"
 		}
 	},
-	"id": 1527,
+	"id": 1529,
 	"name": "DefaultBuild-%TRIGRAMME%",
-	"url": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/build/Definitions/1527",
-	"uri": "vstfs:///Build/Definition/1527",
+	"url": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/build/Definitions/1529",
+	"uri": "vstfs:///Build/Definition/1529",
 	"path": "\\",
 	"type": 2,
 	"queueStatus": 0,
-	"revision": 1,
-	"createdDate": "2017-12-27T11:14:57.727Z",
+	"revision": 4,
+	"createdDate": "2017-12-27T12:05:07.293Z",
 	"project": {
 		"id": "c88b1be1-431a-4f93-800a-49c74bf1c1c6",
 		"name": "GitTraining",
