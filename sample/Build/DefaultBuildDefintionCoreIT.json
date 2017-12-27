@@ -1,0 +1,316 @@
+{
+	"options": [{
+		"enabled": true,
+		"definition": {
+			"id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+		},
+		"inputs": {
+			"branchFilters": "[\"+refs/heads/*\"]",
+			"additionalFields": "{}"
+		}
+	}, {
+		"enabled": false,
+		"definition": {
+			"id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+		},
+		"inputs": {
+			"workItemType": "915467",
+			"assignToRequestor": "true",
+			"additionalFields": "{}"
+		}
+	}, {
+		"enabled": false,
+		"definition": {
+			"id": "57578776-4c22-4526-aeb0-86b6da17ee9c"
+		},
+		"inputs": {}
+	}],
+	"variables": {
+		"BuildConfiguration": {
+			"value": "release",
+			"allowOverride": true
+		},
+		"BuildPlatform": {
+			"value": "any cpu",
+			"allowOverride": true
+		},
+		"PathProject": {
+			"value": "DefaultApplication\\DefaultApplication\\"
+		},
+		"ProjectName": {
+			"value": "DefaultApplication"
+		},
+		"ProjectType": {
+			"value": "FO"
+		},
+		"system.debug": {
+			"value": "false",
+			"allowOverride": true
+		},
+		"TRIGRAMME": {
+			"value": "KMA"
+		}
+	},
+	"retentionRules": [{
+		"branches": ["+refs/heads/*"],
+		"artifacts": [],
+		"artifactTypesToDelete": ["FilePath", "SymbolStore"],
+		"daysToKeep": 10,
+		"minimumToKeep": 1,
+		"deleteBuildRecord": true,
+		"deleteTestResults": true
+	}],
+	"_links": {
+		"self": {
+			"href": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/build/Definitions/1527"
+		},
+		"web": {
+			"href": "https://axafrance.visualstudio.com/_permalink/_build/index?collectionId=5e633e68-a8fb-4da6-b730-be67d3b69326&projectId=c88b1be1-431a-4f93-800a-49c74bf1c1c6&definitionId=1527"
+		},
+		"editor": {
+			"href": "https://axafrance.visualstudio.com/_permalink/_build/definitionEditor?collectionId=5e633e68-a8fb-4da6-b730-be67d3b69326&projectId=c88b1be1-431a-4f93-800a-49c74bf1c1c6&definitionId=1527"
+		}
+	},
+	"buildNumberFormat": "$(Build.DefinitionName)-$(date:yyyyMMdd)$(rev:.r)",
+	"jobAuthorizationScope": 1,
+	"jobTimeoutInMinutes": 60,
+	"jobCancelTimeoutInMinutes": 5,
+	"process": {
+		"phases": [{
+			"dependencies": [],
+			"steps": [{
+				"environment": {},
+				"enabled": true,
+				"continueOnError": false,
+				"alwaysRun": false,
+				"displayName": "Use NuGet 4.3.0",
+				"timeoutInMinutes": 0,
+				"refName": "NuGetToolInstaller1",
+				"task": {
+					"id": "2c65196a-54fd-4a02-9be8-d9d1837b7c5d",
+					"versionSpec": "0.*",
+					"definitionType": "task"
+				},
+				"inputs": {
+					"versionSpec": "4.3.0",
+					"checkLatest": "false"
+				}
+			}, {
+				"environment": {},
+				"enabled": true,
+				"continueOnError": false,
+				"alwaysRun": false,
+				"displayName": "NuGet restore",
+				"timeoutInMinutes": 0,
+				"refName": "NuGetCommand2",
+				"task": {
+					"id": "333b11bd-d341-40d9-afcf-b32d5ce6f23b",
+					"versionSpec": "2.*",
+					"definitionType": "task"
+				},
+				"inputs": {
+					"command": "restore",
+					"solution": "$(Parameters.solution)",
+					"selectOrConfig": "select",
+					"feedRestore": "",
+					"includeNuGetOrg": "true",
+					"nugetConfigPath": "",
+					"externalEndpoints": "",
+					"noCache": "false",
+					"packagesDirectory": "",
+					"verbosityRestore": "Detailed",
+					"searchPatternPush": "$(Build.ArtifactStagingDirectory)/*.nupkg",
+					"nuGetFeedType": "internal",
+					"feedPublish": "",
+					"allowPackageConflicts": "false",
+					"externalEndpoint": "",
+					"verbosityPush": "Detailed",
+					"searchPatternPack": "**/*.csproj",
+					"configurationToPack": "$(BuildConfiguration)",
+					"outputDir": "$(Build.ArtifactStagingDirectory)",
+					"versioningScheme": "off",
+					"includeReferencedProjects": "false",
+					"versionEnvVar": "",
+					"requestedMajorVersion": "1",
+					"requestedMinorVersion": "0",
+					"requestedPatchVersion": "0",
+					"packTimezone": "utc",
+					"includeSymbols": "false",
+					"buildProperties": "",
+					"verbosityPack": "Detailed",
+					"arguments": ""
+				}
+			}, {
+				"environment": {},
+				"enabled": true,
+				"continueOnError": false,
+				"alwaysRun": false,
+				"displayName": "Build solution",
+				"timeoutInMinutes": 0,
+				"refName": "VSBuild3",
+				"task": {
+					"id": "71a9a2d3-a98a-4caa-96ab-affca411ecda",
+					"versionSpec": "1.*",
+					"definitionType": "task"
+				},
+				"inputs": {
+					"solution": "$(Parameters.solution)",
+					"vsVersion": "latest",
+					"msbuildArgs": "/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation=\"$(build.artifactstagingdirectory)\\webdeploy\"",
+					"platform": "$(BuildPlatform)",
+					"configuration": "$(BuildConfiguration)",
+					"clean": "true",
+					"maximumCpuCount": "true",
+					"restoreNugetPackages": "false",
+					"msbuildArchitecture": "x86",
+					"logProjectEvents": "true",
+					"createLogFile": "false"
+				}
+			}, {
+				"environment": {},
+				"enabled": true,
+				"continueOnError": false,
+				"alwaysRun": false,
+				"displayName": "Copy Files to: $(build.artifactstagingdirectory)\\webdeploy",
+				"timeoutInMinutes": 0,
+				"condition": "succeeded()",
+				"refName": "CopyFiles1",
+				"task": {
+					"id": "5bfb729a-a7c8-4a78-a7c3-8d717bb7c13c",
+					"versionSpec": "2.*",
+					"definitionType": "task"
+				},
+				"inputs": {
+					"SourceFolder": "src/app/source/DefaultApplication/DefaultApplication",
+					"Contents": "Web.config",
+					"TargetFolder": "$(build.artifactstagingdirectory)\\webdeploy",
+					"CleanTargetFolder": "false",
+					"OverWrite": "true",
+					"flattenFolders": "false"
+				}
+			}, {
+				"environment": {},
+				"enabled": true,
+				"continueOnError": false,
+				"alwaysRun": false,
+				"displayName": "Publish Artifact",
+				"timeoutInMinutes": 0,
+				"refName": "PublishBuildArtifacts6",
+				"task": {
+					"id": "2ff763a7-ce83-4e1f-bc89-0ae63477cebe",
+					"versionSpec": "1.*",
+					"definitionType": "task"
+				},
+				"inputs": {
+					"PathtoPublish": "$(build.artifactstagingdirectory)",
+					"ArtifactName": "$(Parameters.ArtifactName)",
+					"ArtifactType": "Container",
+					"TargetPath": "\\\\my\\share\\$(Build.DefinitionName)\\$(Build.BuildNumber)",
+					"Parallel": "false",
+					"ParallelCount": "8"
+				}
+			}],
+			"variables": {},
+			"name": "Phase 1",
+			"condition": "succeeded()",
+			"target": {
+				"demands": [],
+				"executionOptions": {
+					"type": 0
+				},
+				"allowScriptsAuthAccessOption": false,
+				"type": 1
+			},
+			"jobAuthorizationScope": "projectCollection",
+			"jobCancelTimeoutInMinutes": 1
+		}],
+		"type": 1
+	},
+	"repository": {
+		"properties": {
+			"apiUrl": "https://api.github.com/repos/kmahmou/passion",
+			"branchesUrl": "https://api.github.com/repos/kmahmou/passion/branches",
+			"cloneUrl": "https://github.com/kmahmou/passion.git",
+			"fullName": "kmahmou/passion",
+			"refsUrl": "https://api.github.com/repos/kmahmou/passion/git/refs",
+			"defaultBranch": "develop",
+			"connectedServiceId": "3d3f337d-6f79-4fa0-be72-aae12317ba5e",
+			"checkoutNestedSubmodules": "false",
+			"cleanOptions": "0",
+			"fetchDepth": "0",
+			"gitLfsSupport": "false",
+			"reportBuildStatus": "false",
+			"skipSyncSource": "false",
+			"labelSourcesFormat": "",
+			"labelSources": ""
+		},
+		"id": "https://github.com/kmahmou/passion.git",
+		"type": "GitHub",
+		"name": "kmahmou/passion",
+		"url": "https://github.com/kmahmou/passion.git",
+		"defaultBranch": "develop",
+		"clean": "true",
+		"checkoutSubmodules": false
+	},
+	"processParameters": {
+		"inputs": [{
+			"aliases": [],
+			"options": {},
+			"properties": {},
+			"name": "solution",
+			"label": "Path to solution or packages.config",
+			"defaultValue": "**\\*.sln",
+			"required": true,
+			"type": "filePath",
+			"helpMarkDown": "The path to the Visual Studio solution file or NuGet packages.config",
+			"visibleRule": "",
+			"groupName": ""
+		}, {
+			"aliases": [],
+			"options": {},
+			"properties": {},
+			"name": "ArtifactName",
+			"label": "Artifact Name",
+			"defaultValue": "drop",
+			"required": true,
+			"type": "string",
+			"helpMarkDown": "The name of the artifact to create.",
+			"visibleRule": "",
+			"groupName": ""
+		}]
+	},
+	"quality": 1,
+	"authoredBy": {
+		"id": "abc07f93-0e7b-4a8c-8d14-baee38255655",
+		"displayName": "Khaled MAHMOUD",
+		"uniqueName": "khaled.mahmoud@axa-tech.com",
+		"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/abc07f93-0e7b-4a8c-8d14-baee38255655",
+		"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=abc07f93-0e7b-4a8c-8d14-baee38255655"
+	},
+	"drafts": [],
+	"queue": {
+		"id": 1502,
+		"name": "AzureWindowsBuild",
+		"pool": {
+			"id": 3,
+			"name": "AzureWindowsBuild"
+		}
+	},
+	"id": 1527,
+	"name": "DefaultBuild-%TRIGRAMME%",
+	"url": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/build/Definitions/1527",
+	"uri": "vstfs:///Build/Definition/1527",
+	"path": "\\",
+	"type": 2,
+	"queueStatus": 0,
+	"revision": 1,
+	"createdDate": "2017-12-27T11:14:57.727Z",
+	"project": {
+		"id": "c88b1be1-431a-4f93-800a-49c74bf1c1c6",
+		"name": "GitTraining",
+		"url": "https://axafrance.visualstudio.com/_apis/projects/c88b1be1-431a-4f93-800a-49c74bf1c1c6",
+		"state": "wellFormed",
+		"revision": 2647164,
+		"visibility": 0
+	}
+}
