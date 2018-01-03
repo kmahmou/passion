@@ -1,7 +1,7 @@
 {
 	"source": 2,
-	"id": 9,
-	"revision": 4,
+	"id": 21,
+	"revision": 1,
 	"name": "DefaultRelease-%TRIGRAMME%",
 	"description": null,
 	"createdBy": {
@@ -11,7 +11,7 @@
 		"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/abc07f93-0e7b-4a8c-8d14-baee38255655",
 		"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=abc07f93-0e7b-4a8c-8d14-baee38255655&t=00000000-0000-0000-90bc-0bac5da7d408"
 	},
-	"createdOn": "2017-12-27T11:40:15.637Z",
+	"createdOn": "2018-01-03T15:43:26.563Z",
 	"modifiedBy": {
 		"id": "abc07f93-0e7b-4a8c-8d14-baee38255655",
 		"displayName": "Khaled MAHMOUD",
@@ -19,7 +19,7 @@
 		"url": "https://app.vssps.visualstudio.com/Ae3f6760c-15be-4fbf-8355-748ea734e752/_apis/Identities/abc07f93-0e7b-4a8c-8d14-baee38255655",
 		"imageUrl": "https://axafrance.visualstudio.com/_api/_common/identityImage?id=abc07f93-0e7b-4a8c-8d14-baee38255655&t=00000000-0000-0000-90bc-0bac5da7d408"
 	},
-	"modifiedOn": "2017-12-27T12:06:04.167Z",
+	"modifiedOn": "2018-01-03T15:43:26.563Z",
 	"isDeleted": false,
 	"path": "\\",
 	"variables": {
@@ -33,7 +33,7 @@
 	},
 	"variableGroups": [],
 	"environments": [{
-		"id": 9,
+		"id": 22,
 		"name": "DEV",
 		"rank": 1,
 		"owner": {
@@ -55,7 +55,7 @@
 				"value": "QAAFAVMODWEB13.dmzppappafa.intraxa"
 			},
 			"Server_DeliveryDir": {
-				"value": "C:\\delivery"
+				"value": "C:\\delivery_%TRIGRAMME%"
 			},
 			"WebSitePort": {
 				"value": "8080"
@@ -70,18 +70,18 @@
 				"rank": 1,
 				"isAutomated": true,
 				"isNotificationOn": false,
-				"id": 25
+				"id": 64
 			}]
 		},
 		"deployStep": {
-			"id": 26
+			"id": 65
 		},
 		"postDeployApprovals": {
 			"approvals": [{
 				"rank": 1,
 				"isAutomated": true,
 				"isNotificationOn": false,
-				"id": 27
+				"id": 66
 			}]
 		},
 		"deployPhases": [{
@@ -271,13 +271,13 @@
 	"artifacts": [],
 	"triggers": [],
 	"releaseNameFormat": "$(Release.DefinitionName)-$(date:yyyyMMdd)$(rev:.r)",
-	"url": "https://axafrance.vsrm.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/Release/definitions/9",
+	"url": "https://axafrance.vsrm.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/Release/definitions/21",
 	"_links": {
 		"self": {
-			"href": "https://axafrance.vsrm.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/Release/definitions/9"
+			"href": "https://axafrance.vsrm.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_apis/Release/definitions/21"
 		},
 		"web": {
-			"href": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_release?definitionId=9"
+			"href": "https://axafrance.visualstudio.com/c88b1be1-431a-4f93-800a-49c74bf1c1c6/_release?definitionId=21"
 		}
 	},
 	"tags": [],
